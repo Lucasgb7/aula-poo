@@ -4,5 +4,5 @@ public class Ex5 {
 		int salario = Integer.parseInt(args[1]);
 		float salarioP = (diasT*salario)/22;
 		System.out.println("Salario proporcional: " + salarioP);
-        }
+    }
 }  
