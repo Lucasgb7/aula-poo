@@ -7,25 +7,31 @@ Repositório para manter os arquivos da disciplina de POO
 ### Clonar repositório
 git clone {endereço}
 
-### Para adicionar arquivos no stage
+### Adicionar arquivos no stage
 git add {nome do arquivo}
 ou
 git add .
 
-### Para enviar / commitar o código
+### Enviar / commitar o código
 git commit -m "{mensagem do commit}"
 
-### Para ver o log
+### Ver o log
 git log
 
-### Para ver a situação do working dir
+### Ver a situação do working dir:
 git status
 
 ### Para limpar a tela
-ctrl + l 
+CTRL + L 
 
 ### Para caminhar nos arquivos
 cd {caminho}
 
 ### Para mostrar a pasta e os detalhes onde você está
 ls -la
+
+### Enviar as alterações para o repositório remoto:
+git push
+
+## Importante quando estiver na UNIVALI
+export PAGER = 
