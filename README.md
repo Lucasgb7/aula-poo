@@ -60,5 +60,3 @@ public void static main(String args[]) {
 	i++;
 }
 ```
-
-Batata com maionese
