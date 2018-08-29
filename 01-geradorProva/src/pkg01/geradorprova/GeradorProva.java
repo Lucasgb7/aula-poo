@@ -9,16 +9,44 @@ package pkg01.geradorprova;
  *
  * @author lucas
  */
+import java.util.Scanner;
 public class GeradorProva {
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Prova x = new Prova("POO");
-        x.setLocal ("Lab 3 - Bloco B6");
-        x.setData ("2018-08-28");
+        Prova p = new Prova();
+        Scanner s = new Scanner(System.in);
+        System.out.println("Digite a disciplina: ");
+        p.setNomeDisciplina(s.nextLine());
+        System.out.println("Digite o local: ");
+        p.setLocal(s.nextLine());
+        System.out.println("Digite a data: ");
+        p.setData(s.nextLine());
+        System.out.println("Digite o peso: ");
+        p.setPeso(s.nextInt());
         
+        System.out.println("Digite a quantidade de questões discursivas: ");
+        int tamDiscursiva = s.nextInt();
+        System.out.println("Digite a quantidade de questões objetivas: ");
+        int tamObjetiva = s.nextInt();
+        
+        int i;
+        Discursiva[] auxDiscursiva = new Discursiva[tamDiscursiva];
+        for(i = 0; i < tamDiscursiva; i++){
+            System.out.println("Preencha o enunciado da questão discursiva ["+i+"]: ");
+            auxDiscursiva[i].setPergunta(s.nextLine());
+            
+            System.out.println("Informe o peso da questão ["+i+"]: ");
+            auxDiscursiva[i].setPeso(s.nextInt());
+            
+            System.out.println("Digite os critérios de avaliação da questão ["+i+"]: ");
+            auxDiscursiva[i].setCriteriosCorrecao(s.nextLine());
+        }
+        
+        for(i = 0; i < tamObjetiva; i++){
+            
+        }
         // forma didtica
 //        String retornoDoMetodo = x.obtemDetalhes();
 //        System.out.println(retornoDoMetodo);

@@ -15,10 +15,11 @@ public class Prova {
     private int peso;
     private String local;
     private String data;
+    private String[] questaoObjetiva;
+    private String[] questaoDiscursiva;
 
-    public Prova(String nomeDaDiscplina) {
-        this.nomeDisciplina = nomeDaDiscplina;
-        this.peso = 10;
+    public Prova(){
+        
     }
 
     public String obtemDetalhes() {
