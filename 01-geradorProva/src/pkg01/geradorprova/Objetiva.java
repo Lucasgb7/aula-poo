@@ -20,7 +20,7 @@ final class Objetiva extends Questao{
         String retorno = ") " + this.getPergunta() + " (" + this.getPeso() + ") " + "\n";
         String[] opcao = this.getOpcao();
         for (int j = 0; j < this.getOpcao().length; j++) {
-            retorno += "["+j+"]" + opcao[j] + "\n\n";
+            retorno += "["+j+"]" + opcao[j] + "\n";
         }
 //      retorno += "Resposta correta: " + this.getRespostaCorreta() + "\n";   
         return retorno;

@@ -17,6 +17,7 @@ public class Prova {
     private String data;
     private Objetiva[] questaoObjetiva;
     private Discursiva[] questaoDiscursiva;
+    
 
     public Prova(){
         
@@ -35,12 +36,12 @@ public class Prova {
         String retorno = "";
         retorno += "Questões Discursivas: \n";
         for (int i = 0; i < this.questaoDiscursiva.length; i++){
-            retorno += i + this.questaoDiscursiva[i].retornaQuestao();
+            retorno += (i+1) + this.questaoDiscursiva[i].retornaQuestao();
         }
         retorno += "-------------------------------------------\n";
         retorno += "Questões Objetivas: \n";
         for (int i = 0; i < this.questaoObjetiva.length; i++){
-            retorno += i + this.questaoObjetiva[i].retornaQuestao();
+            retorno += (i+1) + this.questaoObjetiva[i].retornaQuestao();
         }
         retorno += "\n\n";
         return retorno;
