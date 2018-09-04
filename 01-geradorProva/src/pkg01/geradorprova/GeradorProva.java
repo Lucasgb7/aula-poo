@@ -41,6 +41,7 @@ public class GeradorProva {
         }
         int tamObjetiva = s.nextInt();
         s.nextLine();
+        System.out.println("\n\n");
         
         int i;
         Discursiva[] auxDiscursiva;
@@ -50,7 +51,7 @@ public class GeradorProva {
             auxDiscursiva[i] = new Discursiva(); // Alocando espaço na memória
             System.out.println("Digite a pergunta da questão discursiva[" + i + "]: ");
             auxDiscursiva[i].setPergunta(s.nextLine());
-            System.out.println("");
+
             // ^Leitura da pergunta da questão discursiva (i)
             System.out.println("Digite o peso da questão discursiva[" + i + "]: ");
             while (!s.hasNextDouble()){
@@ -59,6 +60,7 @@ public class GeradorProva {
             }
             auxDiscursiva[i].setPeso(s.nextDouble());
             s.nextLine();
+            
             // ^Leitura do peso da questão discursiva (i)
             System.out.println("Digite os critérios de correção da questão discursiva[" + i + "]: ");
             auxDiscursiva[i].setCriteriosCorrecao(s.nextLine());
@@ -86,32 +88,34 @@ public class GeradorProva {
             // ^ Leitura do peso da questão objetiva (i)
             System.out.println("Digite as alternativas da questão[" + i +"]: ");
             String[] opcao = new String[5]; // Armazena 5 posições para vetor opcao
-            s.nextLine();
             for (int j = 0; j < 5; j++){
                 System.out.println("Alternativa[" + j + "]: ");
                 opcao[j] = s.nextLine();
-            } // Leitura das alternativas da questão objetiva (i)
+            } 
             auxObjetiva[i].setOpcao(opcao);
-            System.out.println("Digite a alternativa correta (1<=x<=5)da questão[" + i +"]: ");
-            while(!s.hasNextInt()){
-                System.out.println("Por favor digitar um numero inteiro entre 1 e 5");
-                s.next();
+            // ^Leitura das alternativas da questão objetiva (i)
+            int aux;
+            do
+            {
+                System.out.println("Digite a alternativa correta (0 a 4) da questao"
+                        + "[" + i + "]: ");
+                while(!s.hasNextInt())
+                {
+                    System.out.println("Por favor, digite um número inteiro.");
+                    s.next();
+                }
+                aux = s.nextInt();
+                if(aux < 0 || aux > 4)
+                    System.out.println("Por favor, digite um número entre 0 e 4.");
             }
-            while(s.nextInt() < 1 || s.nextInt() > 5){
-                System.out.println("Por favor digitar um numero inteiro entre 1 e 5");
-            }
-            while(s.nextInt() < 1 || s.nextInt() > 5){
-                auxObjetiva[i].setRespostaCorreta(s.nextInt());
-                s.nextLine();
-            }
-            // ^Leitura da opção correta 
+            while(aux < 0 || aux > 4);
+            auxObjetiva[i].setRespostaCorreta(aux); // Leitura da opção correta 
             s.nextLine();
-        }
+        }        
         p.setQuestaoDiscursiva(auxDiscursiva); // Prova recebe as questões Discursivas
         p.setQuestaoObjetiva(auxObjetiva); // Prova recebe as questões Objetivas
         
         System.out.println(p.obtemDetalhes()); // Imprime o cabeçalho da prova
-        System.out.println(p.imprimeProva()); // Imprime as questões
-           
+        System.out.println(p.imprimeProva()); // Imprime as questões  
     }
 }
