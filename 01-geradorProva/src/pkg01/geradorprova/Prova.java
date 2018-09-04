@@ -15,8 +15,8 @@ public class Prova {
     private int peso;
     private String local;
     private String data;
-    private String[] questaoObjetiva;
-    private String[] questaoDiscursiva;
+    private Objetiva[] questaoObjetiva;
+    private Discursiva[] questaoDiscursiva;
 
     public Prova(){
         
@@ -30,7 +30,32 @@ public class Prova {
         retorno += "Data: " + this.getData() + "\n";
         return retorno;
     }
-
+    public String imprimeProva(){
+        String retorno = "";
+        retorno += "Questões Discursivas: \n";
+        for(int i = 0; i < this.questaoDiscursiva.length; i++){
+            retorno += (i+1) + ") " + this.questaoDiscursiva[i].getPergunta() + 
+                    " (" + this.questaoDiscursiva[i].getPeso() + ")" + "\n";
+            retorno += "Critério de Avaliação: " + this.questaoDiscursiva[i].getCriteriosCorrecao() +
+                    "\n\n";
+        }
+        retorno += "-------\n";
+        retorno += "Questões Objetivas: \n";
+        for(int i = 0; i < this.questaoObjetiva.length; i++){
+            retorno += (i+1) + ") " + this.questaoObjetiva[i].getPergunta() +
+                    " (" + this.questaoObjetiva[i].getPeso() + ") " + "\n";
+            
+            String[] opcao = this.questaoObjetiva[i].getOpcao();
+            for (int j = 0; j < 5; j++) {
+                retorno += "["+j+"]" + opcao[j] + "\n";
+            }
+            retorno += "Resposta correta: " + this.questaoObjetiva[i].getRespostaCorreta() + "\n";
+        }
+        retorno += "\n\n";
+        
+        return retorno;
+    }
+    
     /**
      * @return the nomeDisciplina
      */
@@ -85,5 +110,33 @@ public class Prova {
      */
     public void setData(String data) {
         this.data = data;
+    }
+
+    /**
+     * @return the questaoObjetiva
+     */
+    public Objetiva[] getQuestaoObjetiva() {
+        return questaoObjetiva;
+    }
+
+    /**
+     * @param questaoObjetiva the questaoObjetiva to set
+     */
+    public void setQuestaoObjetiva(Objetiva[] questaoObjetiva) {
+        this.questaoObjetiva = questaoObjetiva;
+    }
+
+    /**
+     * @return the questaoDiscursiva
+     */
+    public Discursiva[] getQuestaoDiscursiva() {
+        return questaoDiscursiva;
+    }
+
+    /**
+     * @param questaoDiscursiva the questaoDiscursiva to set
+     */
+    public void setQuestaoDiscursiva(Discursiva[] questaoDiscursiva) {
+        this.questaoDiscursiva = questaoDiscursiva;
     }
 }
