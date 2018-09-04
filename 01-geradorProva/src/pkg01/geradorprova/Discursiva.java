@@ -14,7 +14,12 @@ final class Discursiva extends Questao {
     
     public Discursiva(){
     }
-
+    public String retornaQuestao(){
+        String retorno = ") " + this.getPergunta() + " (" + this.getPeso() + ")" + "\n";
+        retorno += "Critério de Avaliação: " + this.getCriteriosCorrecao() +
+                    "\n\n";
+        return retorno;
+    }
     /**
      * @return the criteriosCorrecao
      */

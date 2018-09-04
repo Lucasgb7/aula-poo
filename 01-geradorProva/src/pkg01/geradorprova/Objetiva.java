@@ -16,6 +16,15 @@ final class Objetiva extends Questao{
     public Objetiva (){
         this.opcao = new String[5];
     }
+    public String retornaQuestao(){
+        String retorno = ") " + this.getPergunta() + " (" + this.getPeso() + ") " + "\n";
+        String[] opcao = this.getOpcao();
+        for (int j = 0; j < this.getOpcao().length; j++) {
+            retorno += "["+j+"]" + opcao[j] + "\n\n";
+        }
+//      retorno += "Resposta correta: " + this.getRespostaCorreta() + "\n";   
+        return retorno;
+    }
 
     /**
      * @return the opcao

@@ -23,36 +23,26 @@ public class Prova {
     }
 
     public String obtemDetalhes() {
-        String retorno = "";
+        String retorno = "===========================================\n";
         retorno += "Disciplina: " + this.getNomeDisciplina() + "\n";
         retorno += "Peso: " + this.getPeso() + "\n";
         retorno += "Local: " + this.getLocal() + "\n";
         retorno += "Data: " + this.getData() + "\n";
+        retorno += "===========================================\n\n";
         return retorno;
     }
     public String provaImpressao(){
         String retorno = "";
-        retorno += "\n\nQuestões Discursivas: \n";
-        for(int i = 0; i < this.questaoDiscursiva.length; i++){
-            retorno += (i+1) + ") " + this.questaoDiscursiva[i].getPergunta() + 
-                    " (" + this.questaoDiscursiva[i].getPeso() + ")" + "\n";
-            retorno += "Critério de Avaliação: " + this.questaoDiscursiva[i].getCriteriosCorrecao() +
-                    "\n\n";
+        retorno += "Questões Discursivas: \n";
+        for (int i = 0; i < this.questaoDiscursiva.length; i++){
+            retorno += i + this.questaoDiscursiva[i].retornaQuestao();
         }
-        retorno += "--------------------------------------\n";
+        retorno += "-------------------------------------------\n";
         retorno += "Questões Objetivas: \n";
-        for(int i = 0; i < this.questaoObjetiva.length; i++){
-            retorno += (i+1) + ") " + this.questaoObjetiva[i].getPergunta() +
-                    " (" + this.questaoObjetiva[i].getPeso() + ") " + "\n";
-            
-            String[] opcao = this.questaoObjetiva[i].getOpcao();
-            for (int j = 0; j < 5; j++) {
-                retorno += "["+j+"]" + opcao[j] + "\n";
-            }
-            retorno += "Resposta correta: " + this.questaoObjetiva[i].getRespostaCorreta() + "\n";
+        for (int i = 0; i < this.questaoObjetiva.length; i++){
+            retorno += i + this.questaoObjetiva[i].retornaQuestao();
         }
         retorno += "\n\n";
-        
         return retorno;
     }
     

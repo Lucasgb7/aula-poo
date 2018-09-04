@@ -13,6 +13,7 @@ abstract class Questao {
     private String pergunta;
     private double peso;
     
+    public abstract String retornaQuestao();
     /**
      * @return the pergunta
      */
