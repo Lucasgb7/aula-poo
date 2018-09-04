@@ -30,16 +30,16 @@ public class Prova {
         retorno += "Data: " + this.getData() + "\n";
         return retorno;
     }
-    public String imprimeProva(){
+    public String provaImpressao(){
         String retorno = "";
-        retorno += "Questões Discursivas: \n";
+        retorno += "\n\nQuestões Discursivas: \n";
         for(int i = 0; i < this.questaoDiscursiva.length; i++){
             retorno += (i+1) + ") " + this.questaoDiscursiva[i].getPergunta() + 
                     " (" + this.questaoDiscursiva[i].getPeso() + ")" + "\n";
             retorno += "Critério de Avaliação: " + this.questaoDiscursiva[i].getCriteriosCorrecao() +
                     "\n\n";
         }
-        retorno += "-------\n";
+        retorno += "--------------------------------------\n";
         retorno += "Questões Objetivas: \n";
         for(int i = 0; i < this.questaoObjetiva.length; i++){
             retorno += (i+1) + ") " + this.questaoObjetiva[i].getPergunta() +

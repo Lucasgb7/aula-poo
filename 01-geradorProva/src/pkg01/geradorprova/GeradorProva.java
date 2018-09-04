@@ -5,32 +5,32 @@ package pkg01.geradorprova;
 import java.util.Scanner;
 public class GeradorProva {
     public static void main(String[] args) {
-        Prova p = new Prova();
-        Scanner s = new Scanner(System.in);
+        Prova p = new Prova(); // Criando a prova
+        Scanner s = new Scanner(System.in); // Criando o scanner 
         
         System.out.println("Digite a disciplina: ");
-        p.setNomeDisciplina(s.nextLine());
+        p.setNomeDisciplina(s.nextLine()); // Lê o nome da disciplina da prova
         
         System.out.println("Digite o local: ");
-        p.setLocal(s.nextLine());
+        p.setLocal(s.nextLine()); // Lê o local da prova
         
         System.out.println("Digite a data: ");
-        p.setData(s.nextLine());
+        p.setData(s.nextLine()); // Lê a data da prova
         
-        System.out.println("Digite o peso: ");
-        while(!s.hasNextInt()){
+        System.out.println("Digite o peso: "); // Le o peso da prova
+        while(!s.hasNextInt()){ // Verifica se o valor digitado é inteiro
             System.out.println("Por favor, digite um numero inteiro");
-            s.next();
+            s.next(); // Mensagem de erro, e da um next()
         }
-        p.setPeso(s.nextInt());
-        System.out.println("");
+        p.setPeso(s.nextInt()); // Lê o peso correto
+        System.out.println(""); 
         s.nextLine();
         
         System.out.println("Digite a quantidade de questões discursivas: ");
         while(!s.hasNextInt()){
             System.out.println("Por favor, digite um numero inteiro");
             s.next();
-        }
+        } // Lê a quantidade de questões discursivas e verifica se é inteiro
         int tamDiscursiva = s.nextInt();
         s.nextLine();
         
@@ -116,6 +116,6 @@ public class GeradorProva {
         p.setQuestaoObjetiva(auxObjetiva); // Prova recebe as questões Objetivas
         
         System.out.println(p.obtemDetalhes()); // Imprime o cabeçalho da prova
-        System.out.println(p.imprimeProva()); // Imprime as questões  
+        System.out.println(p.provaImpressao()); // Imprime as questões  
     }
 }
