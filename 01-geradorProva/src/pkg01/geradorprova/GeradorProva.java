@@ -2,120 +2,115 @@ package pkg01.geradorprova;
 /**
  * @author lucasgb7
  */
-import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;    
+import java.io.FileOutputStream;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+
 public class GeradorProva {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+//        File arquivo = new File("prova.txt");
+////        FileOutputStream fos = new FileOutputStream(arquivo);
+////        if (arquivo.createNewFile()){
+////            System.out.println("Arquivo criado com sucesso!");
+////        }else{
+////            System.out.println("Nao foi possivel criar o arquivo");
+////        }      
         Prova p = new Prova(); // Criando a prova
-        Scanner s = new Scanner(System.in); // Criando o scanner 
         
-        System.out.println("Digite a disciplina: ");
-        p.setNomeDisciplina(s.nextLine()); // Lê o nome da disciplina da prova
+        p.setNomeDisciplina(JOptionPane.showInputDialog("Digite o nome da disipina")); // Lê o nome da discplina
+        p.setLocal(JOptionPane.showInputDialog("Digite o local da prova")); // Lê o local da prova
+        p.setData(JOptionPane.showInputDialog("Digite a data: "));// Lê a data da prova
         
-        System.out.println("Digite o local: ");
-        p.setLocal(s.nextLine()); // Lê o local da prova
-        
-        System.out.println("Digite a data: ");
-        p.setData(s.nextLine()); // Lê a data da prova
-        
-        System.out.println("Digite o peso: "); // Le o peso da prova
-        while(!s.hasNextInt()){ // Verifica se o valor digitado é inteiro
-            System.out.println("Por favor, digite um numero inteiro");
-            s.next(); // Mensagem de erro, e da um next()
-        }
-        p.setPeso(s.nextInt()); // Lê o peso correto
-        System.out.println(""); 
-        s.nextLine();
-        
-        System.out.println("Digite a quantidade de questões discursivas: ");
-        while(!s.hasNextInt()){
-            System.out.println("Por favor, digite um numero inteiro");
-            s.next();
-        } // Lê a quantidade de questões discursivas e verifica se é inteiro
-        int tamDiscursiva = s.nextInt();
-        s.nextLine();
-        
-        System.out.println("Digite a quantidade de questões objetivas: ");
-        while(!s.hasNextInt()){
-            System.out.println("Por favor, digite um numero inteiro");
-            s.next();
-        }
-        int tamObjetiva = s.nextInt();
-        s.nextLine();
-        System.out.println("\n\n");
-        
-        int i;
-        Discursiva[] auxDiscursiva;
-        auxDiscursiva = new Discursiva[tamDiscursiva];
-        // Ârmazena um vetor auxiliar de questões discursivas
-        for(i = 0; i < tamDiscursiva; i++){
-            auxDiscursiva[i] = new Discursiva(); // Alocando espaço na memória
-            System.out.println("Digite a pergunta da questão discursiva[" + i + "]: ");
-            auxDiscursiva[i].setPergunta(s.nextLine());
-
-            // ^Leitura da pergunta da questão discursiva (i)
-            System.out.println("Digite o peso da questão discursiva[" + i + "]: ");
-            while (!s.hasNextDouble()){
-                System.out.println("Por favor, digite um numero inteiro/decimal");
-                s.next();
+        while (true) {
+            try {
+                p.setPeso(Integer.parseInt(JOptionPane.showInputDialog("Digite o peso da prova: ")));
+                break; // Lê o peso como String e transforma para Inteiro
+            }catch (Exception erro) {
+                JOptionPane.showMessageDialog(null, erro);
             }
-            auxDiscursiva[i].setPeso(s.nextDouble());
-            s.nextLine();
-            
-            // ^Leitura do peso da questão discursiva (i)
-            System.out.println("Digite os critérios de correção da questão discursiva[" + i + "]: ");
-            auxDiscursiva[i].setCriteriosCorrecao(s.nextLine());
-            System.out.println("\n\n");
-            // ^Leitura dos critérios de avaliação
         }
-        
-        Objetiva[] auxObjetiva;
-        auxObjetiva = new Objetiva[tamObjetiva];
-
-        // ^Armazena um vetor auxiliar de questões objetivas
-        for(i = 0; i < tamObjetiva; i++){
-            auxObjetiva[i] = new Objetiva(); // Alocando espaço na memória
-            
-            System.out.println("Digite a pergunta da questão objetiva[" + i + "]: ");
-            auxObjetiva[i].setPergunta(s.nextLine());
-            // ^ Leitura da pergunta da questão objetiva (i)
-            System.out.println("Digite o peso da questão objetiva[" + i + "]: ");
-            while(!s.hasNextDouble()){
-                System.out.println("Digite um numero inteiro/decimal");
-                s.next();
-            }
-            auxObjetiva[i].setPeso(s.nextDouble());
-            s.nextLine();
-            // ^ Leitura do peso da questão objetiva (i)
-            System.out.println("Digite as alternativas da questão[" + i +"]: ");
-            String[] opcao = new String[5]; // Armazena 5 posições para vetor opcao
-            for (int j = 0; j < 5; j++){
-                System.out.println("Alternativa[" + j + "]: ");
-                opcao[j] = s.nextLine();
-            } 
-            auxObjetiva[i].setOpcao(opcao);
-            // ^Leitura das alternativas da questão objetiva (i)
-            int aux;
-            do
-            {
-                System.out.println("Digite a alternativa correta (0 a 4) da questao"
-                        + "[" + i + "]: ");
-                while(!s.hasNextInt())
-                {
-                    System.out.println("Por favor, digite um número inteiro.");
-                    s.next();
+        ArrayList<Questao> list = new ArrayList();
+        String simOunao;
+        do {
+            String opc;
+            try{
+                opc = JOptionPane.showInputDialog("Discursiva(D) ou Objetiva(O)?");
+                if ("D".equals(opc)){
+                    Discursiva auxDiscursiva = new Discursiva();
+                    
+                    auxDiscursiva.setPergunta(JOptionPane.showInputDialog("Digite a pergunta: "));
+                    auxDiscursiva.setCriteriosCorrecao(JOptionPane.showInputDialog("Digite os critérios de correção: "));
+                    while (true) {
+                        try {
+                            auxDiscursiva.setPeso(Integer.parseInt(JOptionPane.showInputDialog("Digite o peso da questão: ")));
+                            break; // Lê o peso como String e transforma para Inteiro
+                        }catch (Exception erro) {
+                            JOptionPane.showMessageDialog(null, erro);
+                        }
+                    }
+                    
+                    list.add(auxDiscursiva); // Adicionando a questão na lista
                 }
-                aux = s.nextInt();
-                if(aux < 0 || aux > 4)
-                    System.out.println("Por favor, digite um número entre 0 e 4.");
+                if ("O".equals(opc)){
+                    Objetiva auxObjetiva = new Objetiva();
+                    
+                    auxObjetiva.setPergunta(JOptionPane.showInputDialog("Digite a perguta"));
+                    String[] opcao = new String[5];
+                    for (int i = 0; i < opcao.length; i++){
+                        opcao[i] = JOptionPane.showInputDialog("Digite a alternativa: ");
+                    }
+                    auxObjetiva.setOpcao(opcao);
+                    
+                    while (true) {
+                        try {
+                            auxObjetiva.setRespostaCorreta(Integer.parseInt(JOptionPane.showInputDialog("Digite a opção correta(0<=x<=4): ")));
+                            if (auxObjetiva.getRespostaCorreta() < 0 || auxObjetiva.getRespostaCorreta() > 4){
+                                JOptionPane.showMessageDialog(null, "Digite um valor entre 0 e 4!");
+                            }
+                            break; // Lê o peso como String e transforma para Inteiro
+                        }catch (Exception erro) {
+                            JOptionPane.showMessageDialog(null, erro);
+                        }
+                    }
+                    while (true) {
+                        try {
+                            auxObjetiva.setPeso(Integer.parseInt(JOptionPane.showInputDialog("Digite o peso da questão: ")));
+                            break; // Lê o peso como String e transforma para Inteiro
+                        }catch (Exception erro) {
+                            JOptionPane.showMessageDialog(null, erro);
+                        }
+                    }
+                    
+                    list.add(auxObjetiva);
+                }
+            }catch (IllegalArgumentException erro){
+                JOptionPane.showMessageDialog(null, erro);
+            }catch (Exception erro){
+                JOptionPane.showMessageDialog(null, erro);
             }
-            while(aux < 0 || aux > 4);
-            auxObjetiva[i].setRespostaCorreta(aux); // Leitura da opção correta 
-            s.nextLine();
-        }        
-        p.setQuestaoDiscursiva(auxDiscursiva); // Prova recebe as questões Discursivas
-        p.setQuestaoObjetiva(auxObjetiva); // Prova recebe as questões Objetivas
+
+            simOunao = JOptionPane.showInputDialog("Deseja adicionar mais uma questão? (S-Sim | N-Não)");
+        }while("S".equals(simOunao));
         
-        System.out.println(p.obtemDetalhes()); // Imprime o cabeçalho da prova
-        System.out.println(p.provaImpressao()); // Imprime as questões  
+        p.setQuestao(list);
+        System.out.println(p.obtemDetalhes());
+        System.out.println(p.provaImpressao());
+        
+        String provaImpressa = p.obtemDetalhes() + p.provaImpressao();
+        try{
+            File arquivo = new File("prova.txt");
+            FileWriter escritor = new FileWriter(arquivo);
+            PrintWriter saida = new PrintWriter(escritor);
+            // Como ja tem a prova impressa é so colocar no arquivo
+            saida.println(provaImpressa);
+            saida.close();
+            System.out.println("Arquivo salvo!");
+        }catch(Exception erro){
+            JOptionPane.showMessageDialog(null, erro);
+        }
     }
 }

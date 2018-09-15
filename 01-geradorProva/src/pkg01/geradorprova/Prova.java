@@ -4,23 +4,22 @@
  * and open the template in the editor.
  */
 package pkg01.geradorprova;
-
 /**
  *
  * @author lucas
  */
+import java.util.ArrayList;
 public class Prova {
-
     private String nomeDisciplina;
     private int peso;
     private String local;
     private String data;
     private Objetiva[] questaoObjetiva;
     private Discursiva[] questaoDiscursiva;
+    private ArrayList<Questao> questao; 
     
-
     public Prova(){
-        
+        questao = new ArrayList<>();
     }
 
     public String obtemDetalhes() {
@@ -35,16 +34,23 @@ public class Prova {
     public String provaImpressao(){
         String retorno = "";
         retorno += "Questões Discursivas: \n";
-        for (int i = 0; i < this.questaoDiscursiva.length; i++){
-            retorno += (i+1) + this.questaoDiscursiva[i].retornaQuestao();
+        for (int i = 0; i < this.questao.size(); i++){
+            retorno += (i+1) + this.questao.get(i).retornaQuestao() + "\r\n";
         }
-        retorno += "-------------------------------------------\n";
-        retorno += "Questões Objetivas: \n";
-        for (int i = 0; i < this.questaoObjetiva.length; i++){
-            retorno += (i+1) + this.questaoObjetiva[i].retornaQuestao();
-        }
-        retorno += "\n\n";
         return retorno;
+    }
+        /**
+     * @return the questao
+     */
+    public ArrayList<Questao> getQuestao() {
+        return questao;
+    }
+
+    /**
+     * @param questao the questao to set
+     */
+    public void setQuestao(ArrayList<Questao> questao) {
+        this.questao = questao;
     }
     
     /**
