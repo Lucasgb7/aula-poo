@@ -23,17 +23,17 @@ public class Prova {
     }
 
     public String obtemDetalhes() {
-        String retorno = "===========================================\n";
-        retorno += "Disciplina: " + this.getNomeDisciplina() + "\n";
-        retorno += "Peso: " + this.getPeso() + "\n";
-        retorno += "Local: " + this.getLocal() + "\n";
-        retorno += "Data: " + this.getData() + "\n";
-        retorno += "===========================================\n\n";
+        String retorno = "===========================================\r\n";
+        retorno += "Disciplina: " + this.getNomeDisciplina() + "\r\n";
+        retorno += "Peso: " + this.getPeso() + "\r\n";
+        retorno += "Local: " + this.getLocal() + "\r\n";
+        retorno += "Data: " + this.getData() + "\r\n";
+        retorno += "===========================================\r\n\n";
         return retorno;
     }
     public String provaImpressao(){
         String retorno = "";
-        retorno += "Questões Discursivas: \n";
+        retorno += "Questões: \r\n";
         for (int i = 0; i < this.questao.size(); i++){
             retorno += (i+1) + this.questao.get(i).retornaQuestao() + "\r\n";
         }

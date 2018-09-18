@@ -1,23 +1,23 @@
 ===========================================
-Disciplina: POO
+Disciplina: Matemática
 Peso: 10
-Local: Gaspar
-Data: 15/09/2018
+Local: Gaspar - SC
+Data: 17/09/2018
 ===========================================
 
-Questões Discursivas: 
-1) Qual o seu nome? (5.0)
+Questões: 
+1) O que é uma equação de primeiro grau? (5.0)
 _____________________________________________________
 _____________________________________________________
 _____________________________________________________
-Critério de Avaliação: Acertar o nome.
+Critério de Avaliação: Determine o significado do termo.
 
 
-2) Quanto é 1 + 1? (5.0) 
-[0]0
-[1]1
-[2]2
-[3]3
-[4]4
+2) Na equação X = Y + 1, sendo Y = 3, quanto vale X? (5.0) 
+[0]8
+[1]3
+[2]4
+[3]7.5
+[4]6
 
 

@@ -58,10 +58,10 @@ public class GeradorProva {
                 if ("O".equals(opc)){
                     Objetiva auxObjetiva = new Objetiva();
                     
-                    auxObjetiva.setPergunta(JOptionPane.showInputDialog("Digite a perguta"));
+                    auxObjetiva.setPergunta(JOptionPane.showInputDialog("Digite a pergunta"));
                     String[] opcao = new String[5];
                     for (int i = 0; i < opcao.length; i++){
-                        opcao[i] = JOptionPane.showInputDialog("Digite a alternativa: ");
+                        opcao[i] = JOptionPane.showInputDialog("Digite a alternativa ["+i+"]: ");
                     }
                     auxObjetiva.setOpcao(opcao);
                     
@@ -92,8 +92,12 @@ public class GeradorProva {
             }catch (Exception erro){
                 JOptionPane.showMessageDialog(null, erro);
             }
-
-            simOunao = JOptionPane.showInputDialog("Deseja adicionar mais uma questão? (S-Sim | N-Não)");
+            do{
+                simOunao = JOptionPane.showInputDialog("Deseja adicionar mais uma questão? (S-Sim | N-Não)");
+                if (!"S".equals(simOunao) && !"N".equals(simOunao)){
+                    JOptionPane.showMessageDialog(null, "Digite 'S' ou 'N'");
+                }
+            }while(!"S".equals(simOunao) && !"N".equals(simOunao));
         }while("S".equals(simOunao));
         
         p.setQuestao(list);
