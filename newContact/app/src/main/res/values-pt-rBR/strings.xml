@@ -5,4 +5,5 @@
     <string name="last_name">Ultimo nome</string>
     <string name="phone">Telefone</string>
     <string name="email">Email</string>
+    <string name="create">Criar</string>
 </resources>

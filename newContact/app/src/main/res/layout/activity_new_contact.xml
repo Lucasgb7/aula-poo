@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="@strings/first_name"/>
+            android:hint="@string/first_name"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="@strings/last_name"/>
+            android:hint="@string/last_name"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,11 +47,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="@strings/phone"/>
+            android:hint="@string/phone"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="25dp"
@@ -61,10 +61,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:hint="@strings/email"/>
+            android:hint="@string/email"/>
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@strings/create"/>
+        android:text="@string/create"/>
 </LinearLayout>
