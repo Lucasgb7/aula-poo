@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Criar um novo contato</string>
-    <string name="first_name">Primeiro nome</string>
-    <string name="last_name">Ultimo nome</string>
-    <string name="phone">Telefone</string>
-    <string name="email">Email</string>
-    <string name="create">Criar</string>
-</resources>
