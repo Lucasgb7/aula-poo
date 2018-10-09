@@ -96,10 +96,14 @@
         app:layout_constraintTop_toBottomOf="@+id/ivPhone"
         app:srcCompat="@drawable/baseline_local_post_office_24" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="470dp" />
+    <ImageView
+        android:id="@+id/ivCamera"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPerson"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_camera_black_18dp" />
 
 </android.support.constraint.ConstraintLayout>
