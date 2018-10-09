@@ -142,30 +142,35 @@
             android:id="@+id/tvFrango"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Frango: " />
 
         <TextView
             android:id="@+id/tvSuino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Suino: " />
 
         <TextView
             android:id="@+id/tvBovino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Bovino: " />
 
         <TextView
             android:id="@+id/tvLinguicas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Linguicas: " />
 
         <TextView
             android:id="@+id/tvTotalCarnes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Total de carnes: "
             android:textAlignment="center" />
 
@@ -173,36 +178,42 @@
             android:id="@+id/tvCerveja"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Cerveja:" />
 
         <TextView
             android:id="@+id/tvRefrigerante"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Refrigerante: " />
 
         <TextView
             android:id="@+id/tvPaes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Pães: " />
 
         <TextView
             android:id="@+id/tvGuardanapos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Guardanapos:" />
 
         <TextView
             android:id="@+id/tvCopos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Copos descartáveis: " />
 
         <TextView
             android:id="@+id/tvCarvao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:numeric="decimal"
             android:text="Carvão: " />
     </LinearLayout>
 </LinearLayout>

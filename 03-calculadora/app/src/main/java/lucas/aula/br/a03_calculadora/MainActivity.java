@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static java.lang.String.format;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -93,28 +95,32 @@ public class MainActivity extends AppCompatActivity {
                 qtdRefrigerante += 1;
                 qtdPaes += 1;
             }
-            for (i = 0; i < convidados; i++){
-                if (convidados % 10 == 0){
-                    qtdGuardanapos++;
-                    qtdCopos++;
+            for (i = 1; i <= convidados; i++){
+                if (i % 10 == 0){
+                    if (convidados>10) {
+                        qtdGuardanapos++;
+                        qtdCopos++;
+                    }
                 }
             }
-            for (i = 0; i < qtdTotalCarnes; i++){
-                if (qtdTotalCarnes % 5 == 0){
-                    qtdCarvao++;
+            for (i = 1; i <= qtdTotalCarnes; i++){
+                if (i % 5 == 0){
+                    if(qtdTotalCarnes>5) {
+                        qtdCarvao++;
+                    }
                 }
             }
-            frango.setText( "Frango: " + qtdFrango + " kg");
-            suino.setText( "Suíno: " + qtdSuino + " kg");
-            bovino.setText( "Bovino: " + qtdBovino + " kg");
-            linguicas.setText( "Linguiças: " + qtdLinguicas + " kg");
-            totalCarnes.setText( "Total: " + qtdTotalCarnes + " KG");
-            cerveja.setText( "Cerveja: " + qtdCerveja + " Litro(s)");
-            refrigerante.setText( "Refrigerante: " + qtdRefrigerante + " Litro(s)");
-            paes.setText( "Pães: " + qtdPaes + " Unidade(s)");
-            guardanapos.setText( "Guardanapos: " + qtdGuardanapos + " pacote(s) com 50 guardanapos");
-            copos.setText( "Copos Descartáveis: " + qtdCopos + " pacote(s) com 50 copos");
-            carvao.setText( "Carvão: " + qtdCarvao + " pacote(s) de 5kg");
+            frango.setText( format("Frango: %.2f kg", qtdFrango));
+            suino.setText( format("Suino: %.2f kg", qtdSuino));
+            bovino.setText( format("Bovino: %.2f kg", qtdBovino));
+            linguicas.setText( format("Linguiça: %.2f kg", qtdLinguicas));
+            totalCarnes.setText( format("TOTAL: %.2f KG", qtdTotalCarnes));
+            cerveja.setText( format("Cerveja: %.2f Litro(s)", qtdCerveja));
+            refrigerante.setText( format("Refrigerante: %.2f Litro(s)", qtdRefrigerante));
+            paes.setText( format("Pães: %.2f Unidade(s)", qtdPaes));
+            guardanapos.setText( format("Guardanapos: %.2f pacote(s) com 50 unidades", qtdGuardanapos));
+            copos.setText( format("Copos: %.2f pacote(s) com 50 unidades", qtdCopos));
+            carvao.setText( format("Carvão: %.2f pacote(s) de 5kg", qtdCarvao));
 
             result.setVisibility(View.VISIBLE);
         }catch (Exception e){
