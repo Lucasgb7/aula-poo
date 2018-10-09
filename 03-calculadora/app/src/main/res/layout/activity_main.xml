@@ -33,12 +33,13 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="8dp"
+            android:layout_width="68dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/human_child"
-            tools:layout_editor_absoluteY="0dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/childhood" />
     </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
