@@ -18,7 +18,10 @@
         </activity>
         <activity android:name=".circuloPasso1" />
         <activity android:name=".retanguloPasso1" />
-        <activity android:name=".trianguloPasso1"></activity>
+        <activity android:name=".trianguloPasso1" />
+        <activity android:name=".circuloResultado" />
+        <activity android:name=".retanguloResultado" />
+        <activity android:name=".trianguloResultado"></activity>
     </application>
 
 </manifest>
