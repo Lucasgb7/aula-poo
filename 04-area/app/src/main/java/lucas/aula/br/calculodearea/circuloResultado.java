@@ -21,6 +21,6 @@ public class circuloResultado extends AppCompatActivity {
         TextView tvAreaCirculo = findViewById(R.id.tvAreaCirculo);
         NumberFormat nf = DecimalFormat.getInstance();
         nf.setMaximumFractionDigits(2);
-        tvAreaCirculo.setText(nf.format(areaCirculo));
+        tvAreaCirculo.setText(nf.format(areaCirculo) + " cm²");
     }
 }

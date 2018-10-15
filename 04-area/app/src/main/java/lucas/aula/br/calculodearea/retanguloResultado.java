@@ -24,6 +24,6 @@ public class retanguloResultado extends AppCompatActivity {
         TextView tvAreaRetangulo = findViewById(R.id.tvAreaRetangulo);
         NumberFormat nf = DecimalFormat.getInstance();
         nf.setMaximumFractionDigits(2);
-        tvAreaRetangulo.setText(nf.format(areaRetangulo));
+        tvAreaRetangulo.setText(nf.format(areaRetangulo) + " cm²");
     }
 }

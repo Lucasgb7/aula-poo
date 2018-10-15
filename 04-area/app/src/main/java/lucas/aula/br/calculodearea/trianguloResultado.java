@@ -21,6 +21,6 @@ public class trianguloResultado extends AppCompatActivity {
         TextView tvAreaTriangulo = findViewById(R.id.tvAreaTriangulo);
         NumberFormat nf = DecimalFormat.getInstance();
         nf.setMaximumFractionDigits(2);
-        tvAreaTriangulo.setText(nf.format(areaTriangulo));
+        tvAreaTriangulo.setText(nf.format(areaTriangulo) + " cm²");
     }
 }
