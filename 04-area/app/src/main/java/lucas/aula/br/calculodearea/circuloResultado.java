@@ -16,7 +16,7 @@ public class circuloResultado extends AppCompatActivity {
         setContentView(R.layout.activity_circulo_resultado);
 
         double diametro = this.getIntent().getDoubleExtra("diametro", -1);
-        double areaCirculo = (3.141592653589793) / ((diametro/2) * (diametro/2));
+        double areaCirculo = (Math.PI) * ((diametro/2) * (diametro/2));
 
         TextView tvAreaCirculo = findViewById(R.id.tvAreaCirculo);
         NumberFormat nf = DecimalFormat.getInstance();

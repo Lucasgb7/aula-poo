@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 this.startActivity(intencaoAbrirTelaTriangulo);
             }
         }catch (Exception e){
-            Toast.makeText(this.getApplicationContext(), "Erro", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }
