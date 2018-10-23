@@ -1,8 +1,10 @@
 package lucas.aula.br.calculodearea;
 
+import android.content.Intent;
 import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -22,5 +24,11 @@ public class circuloResultado extends AppCompatActivity {
         NumberFormat nf = DecimalFormat.getInstance();
         nf.setMaximumFractionDigits(2);
         tvAreaCirculo.setText(nf.format(areaCirculo) + " cm²");
+    }
+
+    public void onClickVoltar(View v) {
+        Intent intencaoAbrirInicio = new Intent(this.getApplicationContext(), MainActivity.class);
+        intencaoAbrirInicio.addFlags(intencaoAbrirInicio.FLAG_ACTIVITY_CLEAR_TOP);
+        this.startActivity(intencaoAbrirInicio);
     }
 }

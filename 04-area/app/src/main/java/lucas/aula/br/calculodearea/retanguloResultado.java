@@ -26,4 +26,9 @@ public class retanguloResultado extends AppCompatActivity {
         nf.setMaximumFractionDigits(2);
         tvAreaRetangulo.setText(nf.format(areaRetangulo) + " cm²");
     }
+    public void onClickVoltar(View v) {
+        Intent intencaoAbrirInicio = new Intent(this.getApplicationContext(), MainActivity.class);
+        intencaoAbrirInicio.addFlags(intencaoAbrirInicio.FLAG_ACTIVITY_CLEAR_TOP);
+        this.startActivity(intencaoAbrirInicio);
+    }
 }

@@ -1,7 +1,9 @@
 package lucas.aula.br.calculodearea;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -22,5 +24,10 @@ public class trianguloResultado extends AppCompatActivity {
         NumberFormat nf = DecimalFormat.getInstance();
         nf.setMaximumFractionDigits(2);
         tvAreaTriangulo.setText(nf.format(areaTriangulo) + " cm²");
+    }
+    public void onClickVoltar(View v) {
+        Intent intencaoAbrirInicio = new Intent(this.getApplicationContext(), MainActivity.class);
+        intencaoAbrirInicio.addFlags(intencaoAbrirInicio.FLAG_ACTIVITY_CLEAR_TOP);
+        this.startActivity(intencaoAbrirInicio);
     }
 }
