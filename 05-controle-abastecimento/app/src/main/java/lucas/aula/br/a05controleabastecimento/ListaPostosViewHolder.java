@@ -17,7 +17,7 @@ public class ListaPostosViewHolder extends RecyclerView.ViewHolder {
             super(itemView);
             this.ivPosto = itemView.findViewById(R.id.ivPosto);
             this.tvData = itemView.findViewById(R.id.tvData);
-            this.tvKm = itemView.findViewById(R.id.tvKmAtual);
+            this.tvKm = itemView.findViewById(R.id.tvKm);
             this.tvLitros = itemView.findViewById(R.id.tvLitros);
         }
 

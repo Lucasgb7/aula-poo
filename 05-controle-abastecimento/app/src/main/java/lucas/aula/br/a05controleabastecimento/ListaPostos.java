@@ -43,7 +43,7 @@ public class ListaPostos extends AppCompatActivity {
                 //Toast.makeText(this.getApplicationContext(), "AÇÃO 1!!!!!", Toast.LENGTH_LONG).show();
                 this.adapater.notifyDataSetChanged();
             } else {
-                Toast.makeText(this.getApplicationContext(), "Erro 1", Toast.LENGTH_LONG).show();
+                Toast.makeText(this.getApplicationContext(), "Conteúdo não foi salvo", Toast.LENGTH_LONG).show();
             }
         } else {
             Toast.makeText(this.getApplicationContext(), "Erro 2", Toast.LENGTH_SHORT).show();
