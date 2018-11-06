@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Controle de Abastecimento</string>
+    <string-array name="postos">
+        <item>Outro</item>
+        <item>Petrobras</item>
+        <item>Ipiranga</item>
+        <item>Shell</item>
+        <item>Texaco</item>
+    </string-array>
+</resources>
