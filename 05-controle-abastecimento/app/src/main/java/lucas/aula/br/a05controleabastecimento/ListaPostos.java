@@ -34,6 +34,10 @@ public class ListaPostos extends AppCompatActivity {
         }
         startActivityForResult(intent, ABASTECER);
     }
+    public void homeFAB(View view) {
+        Intent intent =  new Intent(this.getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
