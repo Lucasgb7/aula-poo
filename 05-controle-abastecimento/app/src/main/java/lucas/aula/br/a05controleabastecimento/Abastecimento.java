@@ -1,10 +1,15 @@
 package lucas.aula.br.a05controleabastecimento;
 
 public class Abastecimento {
+    private long id;
     private double kilometros;
     private double litros;
     private String data;
     private String posto;
+
+    public Abastecimento(){
+        this.setId(-1);
+    }
 
     public double getKilometros() {
         return kilometros;
@@ -36,5 +41,13 @@ public class Abastecimento {
 
     public void setPosto(String posto) {
         this.posto = posto;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

@@ -34,4 +34,3 @@ public class ListaPostosAdapter extends RecyclerView.Adapter {
         return listaPostos.size();
     }
 }
-

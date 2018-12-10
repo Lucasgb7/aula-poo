@@ -9,7 +9,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
 public class AdicionarAbastecimento extends AppCompatActivity {
 
     private String postos[] = new String[]{"Outro", "Petrobras", "Ipiranga", "Shell", "Texaco"};
@@ -27,29 +30,34 @@ public class AdicionarAbastecimento extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, postos);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        this.kmRodados= this.getIntent().getDoubleExtra("kmRodados", -1);
+        this.kmRodados = this.getIntent().getDoubleExtra("kmRodados", -1);
         sPostos = (Spinner) findViewById(R.id.sPostos);
         sPostos.setAdapter(adapter);
         etKmAtual = findViewById(R.id.etKmAtual);
         etLitrosAbastecidos = findViewById(R.id.etLitros);
         etData = findViewById(R.id.etData);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        etData.setText(formatter.format(date));
     }
-    public void salvarAbastecimento(View view){
+
+    public void salvarAbastecimento(View view) {
         Abastecimento abastecimento = new Abastecimento();
 
-        if(etKmAtual.getText().toString().equals("")){
+        if (etKmAtual.getText().toString().equals("")) {
             this.etKmAtual.setError("Campo obrigatório");
             return;
         }
-        if(etLitrosAbastecidos.getText().toString().equals("")){
+        if (etLitrosAbastecidos.getText().toString().equals("")) {
             this.etLitrosAbastecidos.setError("Campo obrigatório");
             return;
         }
-        if(etData.getText().toString().equals("")){
+        if (etData.getText().toString().equals("")) {
             this.etData.setError("Campo obrigatório");
             return;
         }
-        if(Double.parseDouble(etKmAtual.getText().toString()) <= this.kmRodados){
+        if (Double.parseDouble(etKmAtual.getText().toString()) <= this.kmRodados) {
             this.etKmAtual.setError("KM atual deve ser maior que os KM rodados");
             return;
         }
@@ -58,12 +66,12 @@ public class AdicionarAbastecimento extends AppCompatActivity {
         abastecimento.setLitros(Double.parseDouble(etLitrosAbastecidos.getText().toString()));
         abastecimento.setData(etData.getText().toString());
         abastecimento.setPosto(sPostos.getSelectedItem().toString());
-        boolean abastecimentoSalvo  = ListaPostosDAO.salvar(this.getApplicationContext(), abastecimento);
+        boolean abastecimentoSalvo = ListaPostosDAO.salvar(this.getApplicationContext(), abastecimento);
 
-        if(abastecimentoSalvo){
+        if (abastecimentoSalvo) {
             setResult(1);
             finish();
-        }else{
+        } else {
             Toast.makeText(this.getApplicationContext(), "Não foi possível salvar", Toast.LENGTH_SHORT).show();
         }
     }
