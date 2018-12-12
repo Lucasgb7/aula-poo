@@ -58,7 +58,7 @@ public class AdicionarAbastecimento extends AppCompatActivity {
             return;
         }
         if (Double.parseDouble(etKmAtual.getText().toString()) <= this.kmRodados) {
-            this.etKmAtual.setError("KM atual deve ser maior que os KM rodados");
+            this.etKmAtual.setError("Kilometro atual deve ser maior que os kilometros rodados");
             return;
         }
 

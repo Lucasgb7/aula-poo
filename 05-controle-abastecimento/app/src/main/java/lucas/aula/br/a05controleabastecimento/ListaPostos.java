@@ -50,7 +50,7 @@ public class ListaPostos extends AppCompatActivity {
                 Toast.makeText(this.getApplicationContext(), "Conteúdo não foi salvo", Toast.LENGTH_LONG).show();
             }
         } else {
-            Toast.makeText(this.getApplicationContext(), "Erro 2", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getApplicationContext(), "Erro", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -1,6 +1,8 @@
 package lucas.aula.br.a05controleabastecimento;
 
-public class Abastecimento {
+import java.io.Serializable;
+
+public class Abastecimento implements Serializable {
     private long id;
     private double kilometros;
     private double litros;

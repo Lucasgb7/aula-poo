@@ -16,7 +16,7 @@ public class ListaPostosDAO{
     private static ArrayList<Abastecimento> CACHE = new ArrayList<Abastecimento>();
     public static final String nomeArquivo = "abastecimentos1.txt";
 
-    public static boolean salvarNovo(Context context, Abastecimento objeto){
+    public static boolean salvar(Context context, Abastecimento objeto){
         DbHelper meuBd = new DbHelper(context);
         SQLiteDatabase db = meuBd.getWritableDatabase();
         ContentValues chaveValor = new ContentValues();
@@ -32,40 +32,41 @@ public class ListaPostosDAO{
         return true;
     }
 
-    public static boolean salvarEdicao(Context context, Abastecimento objeto){
-        DbHelper meuBd = new DbHelper(context);
-        SQLiteDatabase db = meuBd.getWritableDatabase();
-        ContentValues chaveValor = new ContentValues();
-        chaveValor.put("kilometros", objeto.getKilometros());
-        chaveValor.put("litros", objeto.getLitros());
-        chaveValor.put("data", objeto.getData());
-        chaveValor.put("posto", objeto.getPosto());
-        String[] whereId = { String.valueOf( objeto.getId() ) };
-        db.update("abastecimento", chaveValor, "id = ?", whereId);
-        db.close();
-        getLista(context);
-        return true;
-    }
-    public static boolean salvar(Context c, Abastecimento objeto){
-        if(objeto.getId() == -1){
-            //eh um abastecimento novo.... então salvaNovo
-            Toast.makeText(c, "Abastecimento salvo", Toast.LENGTH_SHORT).show();
-            return salvarNovo(c, objeto);
-        }else{
-            //eh um abastecimento velho, então edita...
-            Toast.makeText(c, "Abastecimento editado", Toast.LENGTH_SHORT).show();
-            return salvarEdicao(c, objeto);
-        }
-    }
+//    public static boolean salvarEdicao(Context context, Abastecimento objeto){
+//        DbHelper meuBd = new DbHelper(context);
+//        SQLiteDatabase db = meuBd.getWritableDatabase();
+//        ContentValues chaveValor = new ContentValues();
+//        chaveValor.put("kilometros", objeto.getKilometros());
+//        chaveValor.put("litros", objeto.getLitros());
+//        chaveValor.put("data", objeto.getData());
+//        chaveValor.put("posto", objeto.getPosto());
+//        String[] whereId = { String.valueOf( objeto.getId() ) };
+//        db.update("abastecimento", chaveValor, "id = ?", whereId);
+//        db.close();
+//        getLista(context);
+//        return true;
+//    }
 
-    public static boolean excluir(Context context, Abastecimento objeto){
-        DbHelper meuBd = new DbHelper(context);
-        SQLiteDatabase db = meuBd.getWritableDatabase();
-        String[] whereId = { String.valueOf(objeto.getId()) };
-        db.delete("abastecimento", "id = ?", whereId);
-        getLista(context);
-        return true;
-    }
+//    public static boolean salvar(Context c, Abastecimento objeto){
+//        if(objeto.getId() == -1){
+//            //eh um abastecimento novo.... então salvaNovo
+//            Toast.makeText(c, "Abastecimento salvo", Toast.LENGTH_SHORT).show();
+//            return salvarNovo(c, objeto);
+//        }else{
+//            //eh um abastecimento velho, então edita...
+//            Toast.makeText(c, "Abastecimento editado", Toast.LENGTH_SHORT).show();
+//            return salvarEdicao(c, objeto);
+//        }
+//    }
+
+//    public static boolean excluir(Context context, Abastecimento objeto){
+//        DbHelper meuBd = new DbHelper(context);
+//        SQLiteDatabase db = meuBd.getWritableDatabase();
+//        String[] whereId = { String.valueOf(objeto.getId()) };
+//        db.delete("abastecimento", "id = ?", whereId);
+//        getLista(context);
+//        return true;
+//    }
 
     public static ArrayList<Abastecimento> getLista(Context context) {
         CACHE = new ArrayList<>();
