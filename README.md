@@ -4,6 +4,10 @@
 Repositório para manter os arquivos da disciplina de POO
 
 ## Comandos importantes para lembrar
+### Iniciar um repositorio em alguma pasta
+```
+git init
+```
 ### Clonar repositório
 ```
 git clone {endereço}
