@@ -37,3 +37,13 @@ git status
 ```
 git push {nome_do_branch}
 ```
+
+### Trocar para outro branch:
+```
+git checkout {nome_do_branch}
+```
+
+### Juntar o branch atual com outro branch:
+```
+git merge {nome_do_branch}
+```
