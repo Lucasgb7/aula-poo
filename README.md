@@ -3,21 +3,27 @@
 ## Objetivo
 Repositório para manter os arquivos da disciplina de POO
 
-## Comandos importantes para lembrar
-### Iniciar um repositorio em alguma pasta
+## Guia prático do uso do GIT
+
+###Criando um novo repositório
 ```
 git init
 ```
-### Clonar repositório
+###Obter um repositório
+#####Crie uma cópia de trabalho em um repositório local executando o comando
 ```
-git clone {endereço}
+git clone /caminho/para/o/repositório
 ```
-
+*ou*
+#####Quando usar um servidor remoto, seu comando será
+```
+git clone usuário@servidor:/caminho/para/o/repositório
+```
 ### Adicionar arquivos no stage:
 ```
 git add {nome do arquivo}
 ```
-ou
+*ou*
 ```
 git add .
 ```
